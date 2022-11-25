@@ -54,4 +54,14 @@ public class LoteriaFederalController {
         }
         return 0;
     }
+
+    public String numerosSorteio(int chave) {
+        LoteriaFederal jogo = this.jogos.get(chave);
+        String numerosSorteio = "";
+        for (int numero: jogo.revelarNumerosSorteio().stream().sorted().toList()){
+            numerosSorteio += numero + ", ";
+        }
+        return numerosSorteio.substring(0, numerosSorteio.length()-2);
+
+    }
 }

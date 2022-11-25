@@ -14,7 +14,7 @@ public class Menu {
 
     public String lerCPF() {
 
-        util.exibirMensagem("Digite o cpf");
+        util.exibirMensagem("Digite o cpf:");
         return util.lerString();
     }
 
@@ -23,9 +23,9 @@ public class Menu {
         util.exibirMensagem(controller.exibirJogos());
     }
 
-    public void fazerAposta(){
+    public void fazerApostaAleatoria(){
         exibirJogos();
-        util.exibirMensagem("Digite o numero do jogo para apostar.");
+        util.exibirMensagem("Digite o número do jogo para apostar:");
         int chaveJogo = util.lerInteger();
         controller.fazerAposta(chaveJogo, lerCPF());
         util.exibirMensagem("Aposta criada!");
@@ -33,21 +33,21 @@ public class Menu {
 
     private void exibirNumeroApostas(){
         exibirJogos();
-        util.exibirMensagem("Digite o numero do jogo: ");
+        util.exibirMensagem("Digite o número do jogo: ");
         int chave = util.lerInteger();
-        util.exibirMensagem("O numero de apostas é " + controller.getNumeroApostas(chave));
+        util.exibirMensagem("O número de apostas é " + controller.getNumeroApostas(chave));
     }
 
     private void exibirValorPremio(){
         exibirJogos();
-        util.exibirMensagem("Digite o numero do jogo: ");
+        util.exibirMensagem("Digite o número do jogo: ");
         int chave = util.lerInteger();
-        util.exibirMensagem("O valor do premio é " + String.format("%.2f", controller.getValorPremio(chave)));
+        util.exibirMensagem("O valor do prêmio é " + String.format("%.2f", controller.getValorPremio(chave)));
     }
 
     private void gerenciarJogos() {
         util.exibirMensagem("============ MENU GERENCIAR JOGOS ============");
-        util.exibirMensagem("1 - Numeros apostas\n2 - Valor premio\n3 - Quantidade apostas vencedoras");
+        util.exibirMensagem("1 - Número apostas\n2 - Valor prêmio\n3 - Quantidade apostas vencedoras\n4 - Fazer sorteio\n");
         int op = util.lerInteger();
         if(op == 1){
             this.exibirNumeroApostas();
@@ -55,30 +55,40 @@ public class Menu {
             exibirValorPremio();
         } else if (op == 3){
             exibirNumeroApostasVencedoras();
+        } else if (op == 4){
+            exibirNumerosSorteados();
         }
 
     }
 
+    private void exibirNumerosSorteados() {
+        exibirJogos();
+        util.exibirMensagem("Digite o número do jogo: ");
+        int chave = util.lerInteger();
+        System.out.println("Jogo Finalizado!");
+        System.out.println("Os numeros do sorteio são: " + controller.numerosSorteio(chave));
+    }
+
     private void exibirNumeroApostasVencedoras() {
         exibirJogos();
-        util.exibirMensagem("Digite o numero do jogo: ");
+        util.exibirMensagem("Digite o número do jogo: ");
         int chave = util.lerInteger();
-        util.exibirMensagem("O numero de apostas vencedoras é: " + controller.quantidadeApostasVencedoras(chave));
+        util.exibirMensagem("O número de apostas vencedoras é: " + controller.quantidadeApostasVencedoras(chave));
     }
 
     public void menuPrincipal(){
         util.exibirMensagem("============ MENU PRINCIPAL ============");
-        util.exibirMensagem("1 - Criar jogo loteria\n2 - Fazer aposta aleatoria\n3 - Gerenciar jogos\nop: ");
+        util.exibirMensagem("1 - Criar jogo loteria\n2 - Fazer aposta aleatória\n3 - Gerenciar jogos\nop: ");
 
         int op = util.lerInteger();
         if (op == 1){
             criarJogo();
         } else if(op == 2) {
-            fazerAposta();
+            fazerApostaAleatoria();
         } else if(op == 3){
             gerenciarJogos();
         } else {
-            util.exibirMensagem("Opção inválida");
+            util.exibirMensagem("Opção inválida.");
         }
     }
 }
