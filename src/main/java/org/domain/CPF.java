@@ -1,4 +1,5 @@
 package org.domain;
+import java.util.Objects;
 import java.util.regex.PatternSyntaxException;
 
 public class CPF {
@@ -22,9 +23,10 @@ public class CPF {
     }
 
     @Override
-    public String toString() {
-        return "CPF{" +
-                "cpf='" + cpf + '\'' +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CPF cpf1 = (CPF) o;
+        return cpf.equals(cpf1.cpf);
     }
 }

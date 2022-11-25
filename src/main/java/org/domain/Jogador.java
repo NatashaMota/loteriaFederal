@@ -6,27 +6,22 @@ public class Jogador {
     private ABSAposta ABSAposta;
 
     public Jogador(String cpf) {
-
         this.setCpf(cpf);
     }
 
     public ABSAposta getAposta() {
-
         return ABSAposta;
     }
 
     public void setAposta(ABSAposta ABSAposta) {
-
         this.ABSAposta = ABSAposta;
     }
 
     public CPF getCpf() {
-
         return cpf;
     }
 
     public void setCpf(String cpf) {
-
         this.cpf = new CPF(cpf);
     }
 

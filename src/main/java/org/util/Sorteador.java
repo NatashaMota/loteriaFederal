@@ -8,7 +8,6 @@ public class Sorteador {
     private int numeroMin;
     private int numeroMax;
 
-
     public Sorteador(int numeroMin, int numeroMax){
         this.numeroMin = numeroMin;
         this.numeroMax = numeroMax;
@@ -26,7 +25,6 @@ public class Sorteador {
         Random random = new Random();
         return random.nextInt(getNumeroMin(), getNumeroMax()+1);
     }
-
 
     public int  getNumeroMin(){
 

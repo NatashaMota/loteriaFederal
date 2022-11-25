@@ -1,14 +1,14 @@
 package org.main;
 
 
-import org.view.LoteriaFederalView;
+import org.view.Menu;
 
 public class Main {
 
     public static void main(String[] args) {
-        LoteriaFederalView loteriaFederalView = new LoteriaFederalView();
+        Menu menu = new Menu();
         while (true){
-            loteriaFederalView.menuPrincipal();
+            menu.menuPrincipal();
         }
 
     }
